@@ -1,0 +1,30 @@
+.card__item {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.card__img {
+  width: 325px;
+  height: 328px;
+  border-radius: 20px;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.card__name {
+  font-family: "Cabinet Grotesk";
+  width: 72px;
+  height: 24px;
+  font-size: 16px;
+  line-height: 20px;
+  position: absolute;
+  margin: 15px 0 0;
+  background: #fff;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.6);
+  border-radius: 4px;
+}

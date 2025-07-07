@@ -1,0 +1,37 @@
+.modal__content_type_preview {
+    width: 498px;
+    height: 610px;
+    padding: 0;
+    border-radius: 16px;;
+}
+
+
+
+.modal__preview-close-btn {
+    top: 24px;
+    right: 24px;
+}
+
+.modal__preview-img {
+    width: 100%;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
+.modal__preview-content {
+    padding: 20px 32px 32px;
+    font-family: "Cabinet Grotesk";
+font-weight: 700;
+font-size: 20px;
+line-height: 24px;
+}
+
+.modal__preview-title {
+    margin: 0;
+    
+font-size: 20px;
+}
+
+.modal__preview-weather {
+    margin: 12px 0 0;
+}
