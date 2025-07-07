@@ -2,7 +2,7 @@
 
 # Project Link
 
-You can click this [Link:]https://YOUR_USERNAME.github.io/se_project_react to open my project.
+You can click this [Link:](https://YOUR_USERNAME.github.io/se_project_react) to open my project.
 
 
 
