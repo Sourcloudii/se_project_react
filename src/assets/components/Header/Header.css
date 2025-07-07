@@ -1,0 +1,44 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding: 32px 0 28px;
+}
+
+.header__date-and-location {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.header__add-clothes-btn {
+  width: 116px;
+  height: 24px;
+  margin: 0 20px 0 auto;
+  border-style: none;
+  padding: 0;
+  line-height: 1.5;
+  background-color: transparent;
+}
+
+.header__add-clothes-btn:hover {
+  cursor: pointer;
+}
+
+.header__logo {
+  margin-right: 24px;
+}
+
+.header__user-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header__username {
+  margin: 0;
+  line-height: 1;
+}
+
+.header__avatar {
+  width: 40px;
+  height: 40px;
+}
