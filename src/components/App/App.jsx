@@ -34,6 +34,22 @@ function App() {
     setActiveModal("");
   };
 
+  useEffect(() => {
+    if (!activeModal) return;
+
+    const handleEscClose = (e) => {
+      if (e.key === "Escape") {
+        handleCloseModal();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscClose);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscClose);
+    };
+  }, [activeModal]);
+
   const handleCardClick = (card) => {
     setActiveModal("preview");
     setSelectedCard(card);
@@ -43,15 +59,16 @@ function App() {
     <div className="page">
       <div className="page__content">
         <Header weatherData={weatherData} handleOpenModal={handleOpenModal} />
-        <Main weatherData={weatherData} handleCardClick={handleCardClick}/>
+        <Main weatherData={weatherData} handleCardClick={handleCardClick} />
         <Footer />
         <ModalWithForm
           buttonText="Add garmet"
           title="New garmet"
           activeModal={activeModal}
+          isOpen={activeModal === "add-garmet"}
           onClose={handleCloseModal}
         >
-          <label htmlFor="Name" className="modal__label">
+          <label htmlFor="name" className="modal__label">
             Name{" "}
             <input
               type="text"
@@ -80,6 +97,7 @@ function App() {
               <input
                 type="radio"
                 name="type"
+                id="hot"
                 value="hot"
                 className="modal__radio-input"
               />
@@ -92,6 +110,7 @@ function App() {
               <input
                 type="radio"
                 name="type"
+                id="warm"
                 value="warm"
                 className="modal__radio-input"
               />
@@ -104,6 +123,7 @@ function App() {
               <input
                 type="radio"
                 name="type"
+                id="cold"
                 value="cold"
                 className="modal__radio-input"
               />
