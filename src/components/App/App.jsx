@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { coordinates, APIkey } from "../../utils/constants.js";
 import { getWeatherData, filterWeatherData } from "../../utils/weatherApi.js";
-import { CurrentTemperatureUnitContext } from "../context/CurrentTemperatureUnitContext.js";
+import { CurrentTemperatureUnitContext } from "../../utils/CurrentTemperatureUnitContext.js";
 import {
   getItems,
   postNewClothingItem,
