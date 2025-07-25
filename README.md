@@ -1,8 +1,13 @@
 # React + Vite
 
-* Project Link
+ Project Link
 
 You can click this [Link](https://sourcloudii.github.io/se_project_react/) to open my project.
+
+
+Future Improvements
+
+* Responsive Design
 
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
