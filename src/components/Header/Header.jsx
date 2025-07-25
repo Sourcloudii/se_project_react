@@ -1,8 +1,10 @@
 import "./Header.css";
 import logo from "../../images/logo.svg";
 import avatar from "../../images/avatar.png";
+import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
+import { Link } from "react-router-dom";
 
-function Header({ handleOpenModal, weatherData}) {
+function Header({ handleOpenModal, weatherData }) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -10,21 +12,26 @@ function Header({ handleOpenModal, weatherData}) {
 
   return (
     <header className="header">
-      <img className="header__logo" src={logo} alt="WTWR" />
+      <Link to="/">
+        <img className="header__logo" src={logo} alt="WTWR" />
+      </Link>
       <p className="header__date-and-location">
         {currentDate}, {weatherData.city}
       </p>
+      <ToggleSwitch />
       <button
         onClick={() => handleOpenModal("add-garmet")}
         type="button"
         className="header__add-clothes-btn"
       >
-        + Add Clothes
+        + Add clothes
       </button>
-      <div className="header__user-container">
-        <p className="header__username">Terrence Tegegne</p>
-        <img className="header__avatar" src={avatar} alt="Terrence Tegegne" />
-      </div>
+      <Link to="/profile" className="header__link">
+        <div className="header__user-container">
+          <p className="header__username">Terrence Tegegne</p>
+          <img className="header__avatar" src={avatar} alt="Terrence Tegegne" />
+        </div>
+      </Link>
     </header>
   );
 }

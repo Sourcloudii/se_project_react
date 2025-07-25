@@ -1,8 +1,6 @@
 import "./ItemModal.css";
 
-function ItemModal({ activeModal, selectedCard, onClose }) {
-
-
+function ItemModal({ activeModal, selectedCard, onClose, onDeleteClick }) {
   return (
     <div className={`modal ${activeModal === "preview" && "modal_opened"}`}>
       <div className="modal__content modal__content_type_preview">
@@ -12,12 +10,17 @@ function ItemModal({ activeModal, selectedCard, onClose }) {
           aria-label="Close Modal"
         ></button>
         <img
-          src={selectedCard.link}
+          src={selectedCard.imageUrl}
           alt={selectedCard.name}
           className="modal__preview-img"
         />
         <div className="modal__preview-content">
-          <h2 className="modal__preview-title">{selectedCard.name}</h2>
+          <h2 className="modal__preview-title">
+            {selectedCard.name}
+            <button onClick={() => onDeleteClick(selectedCard)} type="button" className="modal__preview-delete-btn">
+              Delete item
+            </button>
+          </h2>
           <p className="modal__preview-weather">
             Weather: {selectedCard.weather}
           </p>

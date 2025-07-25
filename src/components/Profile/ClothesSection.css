@@ -1,0 +1,19 @@
+.clothes-section-group {
+  display: flex;
+  gap: 20px;
+  font-family: Cabinet Grotesk;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.clothes-section-btn {
+  border-style: none;
+  color: rgba(0, 0, 0, 0.6);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.clothes-section_cards-list {
+  display: flex;
+}

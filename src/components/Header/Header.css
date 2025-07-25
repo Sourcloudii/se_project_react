@@ -12,11 +12,15 @@
 .header__add-clothes-btn {
   width: 116px;
   height: 24px;
-  margin: 0 20px 0 auto;
+  margin: 0 20px 0;
   border-style: none;
   padding: 0;
   line-height: 1.5;
   background-color: transparent;
+  font-family: Cabinet Grotesk;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 100%;
 }
 
 .header__add-clothes-btn:hover {
@@ -33,9 +37,21 @@
   gap: 12px;
 }
 
+.header__link {
+  text-decoration: none;
+}
+
 .header__username {
+  width: 157px;
+  height: 25px;
   margin: 0;
   line-height: 1;
+  color: #000;
+  font-family: Cabinet Grotesk;
+  font-weight: 700;
+  font-size: 20px;
+  position: relative;
+  top: 3px;
 }
 
 .header__avatar {
