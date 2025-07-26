@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { coordinates, APIkey } from "../../utils/constants.js";
 import { getWeatherData, filterWeatherData } from "../../utils/weatherApi.js";
-import { CurrentTemperatureUnitContext } from "../../utils/CurrentTemperatureUnitContext.js";
+import { CurrentTemperatureUnitContext } from "../../context/CurrentTemperatureUnitContext.js";
 import {
   getItems,
   postNewClothingItem,
@@ -43,6 +43,10 @@ function App() {
 
   const handleToggleSwitchChange = () => {
     setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F");
+  };
+
+  const handleOpenAddModal = () => {
+    setActiveModal("add-garment");
   };
 
   const handleOpenModal = (modalName) => {
@@ -111,7 +115,7 @@ function App() {
     >
       <div className="page">
         <div className="page__content">
-          <Header weatherData={weatherData} handleOpenModal={handleOpenModal} />
+          <Header weatherData={weatherData} handleOpenAddModal={handleOpenAddModal} />
           <Routes>
             <Route
               path="/"
@@ -129,6 +133,7 @@ function App() {
                 <Profile
                   onCardClick={handleCardClick}
                   clothingItems={clothingItems}
+                  handleOpenAddModal={handleOpenAddModal}
                 />
               }
             />
@@ -136,7 +141,7 @@ function App() {
           <Footer />
           <AddItemModal
             activeModal={activeModal}
-            isOpen={activeModal === "add-garmet"}
+            isOpen={activeModal === "add-garment"}
             onClose={handleCloseModal}
             onAddItemModalSubmit={handleAddItemModalSubmit}
           />

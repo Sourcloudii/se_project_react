@@ -34,8 +34,8 @@ export default function AddItemModal({
 
   return (
     <ModalWithForm
-      buttonText="Add garmet"
-      title="New garmet"
+      buttonText="Add garment"
+      title="New garment"
       activeModal={activeModal}
       isOpen={isOpen}
       onClose={onClose}

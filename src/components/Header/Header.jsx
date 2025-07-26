@@ -4,7 +4,7 @@ import avatar from "../../images/avatar.png";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
 
-function Header({ handleOpenModal, weatherData }) {
+function Header({ handleOpenAddModal, weatherData }) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -20,7 +20,7 @@ function Header({ handleOpenModal, weatherData }) {
       </p>
       <ToggleSwitch />
       <button
-        onClick={() => handleOpenModal("add-garmet")}
+        onClick={handleOpenAddModal}
         type="button"
         className="header__add-clothes-btn"
       >
