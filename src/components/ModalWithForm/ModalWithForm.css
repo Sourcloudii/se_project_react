@@ -18,10 +18,10 @@
 .modal__content {
   background-color: #fff;
   position: relative;
-  padding: 28px 28px 0;
+  padding: 28px 28px 36px;
   border-radius: 20px;
   width: 496px;
-  height: 436px;
+  height: auto;
 }
 
 .modal__title {
@@ -48,22 +48,36 @@
   border-style: none;
 }
 
+.modal__btn_options {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
 
-.modal__add-btn {
+.modal__submit-btn {
   margin: 32px 0 0;
-  padding: 0;
-  width: 124px;
-  height: 36px;
+  padding: 8px 16px;
   border-radius: 4px;
   background-color: #0000004d;
   color: #fff;
   border-style: none;
+  cursor: pointer;
 }
 
-.modal__add-btn:hover {
+.modal__alt-btn {
+  font-family: Cabinet Grotesk;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: rgba(0, 0, 0, 0.5);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.modal__submit-btn:hover {
   background-color: rgba(0, 0, 0, 0.6);
   cursor: pointer;
-
 }
 
 .modal__close-btn:hover {
@@ -95,11 +109,9 @@
   margin: 0;
 }
 
-/* Style the label when the child radio is checked */
 label:has(input[type="radio"]:checked) {
   color: #000;
 }
-
 
 .modal__radio-input {
   margin-right: 8px;
