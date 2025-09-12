@@ -30,7 +30,7 @@ function ItemCard({ item, onCardClick, onCardLike, currentUser }) {
           aria-label="Like Button"
           onClick={handleCardLike}
         >
-          {isOwn && item.owner !== "system" && (
+          {!isOwn && item.owner !== "system" && (
             <img
               src={isLiked ? likedHeart : unlikedHeart}
               alt="like icon"
