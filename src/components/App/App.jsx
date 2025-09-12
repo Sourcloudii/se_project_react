@@ -157,6 +157,7 @@ function App() {
       .authorize(email, password)
       .then((data) => {
         if (data.token) {
+          setToken(data.token);
           setCurrentUser(data.user);
           setIsLoggedIn(true);
         }
@@ -221,8 +222,6 @@ function App() {
               handleOpenAddModal={handleOpenAddModal}
               handleRegisterModal={handleRegisterModal}
               handleLoginModal={handleLoginModal}
-              isLoggedIn={isLoggedIn}
-              currentUser={currentUser}
             />
             <Routes>
               <Route
@@ -233,7 +232,6 @@ function App() {
                     onCardClick={handleCardClick}
                     clothingItems={clothingItems}
                     onCardLike={handleCardLike}
-                    currentUser={currentUser}
                   />
                 }
               />
@@ -248,7 +246,6 @@ function App() {
                       handleOpenEditProfileModal={handleOpenEditProfileModal}
                       handleOpenAddModal={handleOpenAddModal}
                       handleLogoutUser={handleLogoutUser}
-                      currentUser={currentUser}
                     />
                   </ProtectedRoute>
                 }
@@ -267,7 +264,6 @@ function App() {
               selectedCard={selectedCard}
               onClose={handleCloseModal}
               onDeleteClick={handleDeleteClick}
-              currentUser={currentUser}
             />
             <DeleteItemModal
               onClose={handleCloseModal}
@@ -294,7 +290,6 @@ function App() {
               activeModal={activeModal}
               isOpen={activeModal === "edit-profile"}
               onClose={handleCloseModal}
-              currentUser={currentUser}
               onEditProfileModalSubmit={handleEditProfileModalSubmit}
             />
           </div>
