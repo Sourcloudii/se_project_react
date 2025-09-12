@@ -8,8 +8,8 @@ export function getItems() {
   return fetch(`${BASE_URL}/items`).then(checkResponse);
 }
 
-export function deleteClothingItem(Id, token) {
-  return fetch(`${BASE_URL}/items/${Id}`, {
+export function deleteClothingItem(itemId, token) {
+  return fetch(`${BASE_URL}/items/${itemId}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
