@@ -1,17 +1,20 @@
 import "./ItemCard.css";
 import likedHeart from "../../images/liked-heart.svg";
 import unlikedHeart from "../../images/unliked-heart.svg";
+import { useContext } from "react";
+import { CurrentUserContext } from "../../context/CurrentUserContext";
 
-function ItemCard({ item, onCardClick, onCardLike, currentUser }) {
-  const isOwn = item?.owner === currentUser?._id;
-  const isLiked = item.likes.some(id => id === currentUser._id);
+function ItemCard({ item, onCardClick, onCardLike }) {
+  const { currentUser, isLoggedIn } = useContext(CurrentUserContext);
+
+  const isLiked = item.likes.some((id) => id === currentUser?._id);
 
   const handleCardClick = () => {
     onCardClick(item);
   };
 
   const handleCardLike = () => {
-    onCardLike({ id: item._id, isLiked });
+    onCardLike({ id: item?._id, isLiked });
   };
 
   return (
@@ -30,11 +33,8 @@ function ItemCard({ item, onCardClick, onCardLike, currentUser }) {
           aria-label="Like Button"
           onClick={handleCardLike}
         >
-          {!isOwn && item.owner !== "system" && (
-            <img
-              src={isLiked ? likedHeart : unlikedHeart}
-              alt="like icon"
-            />
+          {isLoggedIn && item.owner !== "system" && (
+            <img src={isLiked ? likedHeart : unlikedHeart} alt="like icon" />
           )}
         </button>
       </div>
