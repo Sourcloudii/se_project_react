@@ -45,7 +45,7 @@ export function likeItem(itemId, token) {
 
 export function dislikeItem(itemId, token) {
   return fetch(`${BASE_URL}/items/${itemId}/likes`, {
-    method: "Delete",
+    method: "DELETE",
     headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
