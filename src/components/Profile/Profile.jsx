@@ -13,14 +13,14 @@ export default function Profile({
 }) {
   return (
     <div className="profile">
-      <section className="profile__sidebar">
+      <section>
         <SideBar
           currentUser={currentUser}
           handleOpenEditProfileModal={handleOpenEditProfileModal}
           handleLogoutUser={handleLogoutUser}
         />
       </section>
-      <section className="profile__clothes">
+      <section>
         <ClothesSection
           onCardClick={onCardClick}
           onCardLike={onCardLike}
