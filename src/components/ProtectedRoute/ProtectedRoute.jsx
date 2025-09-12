@@ -13,7 +13,7 @@ function ProtectedRoute({ children, anonymous = false }) {
   }
 
   if (!isLoggedIn) {
-    return <Navigate to="/signup" state={{ from: location.pathname }} replace/>;
+    return <Navigate to="/" state={{ from: location.pathname }} replace/>;
   }
   return children;
 }
