@@ -18,7 +18,7 @@ import Footer from "../Footer/Footer.jsx";
 import ItemModal from "../ItemModal/ItemModal.jsx";
 import AddItemModal from "../AddItemModal/AddItemModal.jsx";
 import DeleteItemModal from "../DeleteItemModal/DeleteItemModal.jsx";
-import RegisterModal from "../Registermodal/RegisterModal.jsx";
+import RegisterModal from "../RegisterModal/RegisterModal.jsx";
 import LoginModal from "../LoginModal/LoginModal.jsx";
 import EditProfileModal from "../EditProfileModal/EditProfileModal.jsx";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.jsx";
