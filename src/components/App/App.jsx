@@ -148,17 +148,6 @@ function App() {
       .catch(console.error);
   };
 
-  const handleRegisterModalSubmit = ({ name, password, email, avatarUrl }) => {
-    const jwt = getToken();
-    auth
-      .register(name, password, email, avatarUrl)
-      .then(() => {
-        navigate("/signin");
-        handleCloseModal();
-      })
-      .catch(console.error);
-  };
-
   const handleLoginModalSubmit = ({ email, password }) => {
     if (!email || !password) {
       return;
@@ -168,7 +157,6 @@ function App() {
       .authorize(email, password)
       .then((data) => {
         if (data.token) {
-          setToken(data.token);
           setCurrentUser(data.user);
           setIsLoggedIn(true);
         }
@@ -176,7 +164,20 @@ function App() {
       .catch(console.error);
   };
 
+  const handleRegisterModalSubmit = ({ name, password, email, avatarUrl }) => {
+    auth
+      .register(name, password, email, avatarUrl)
+      .then((data) => {
+        setToken(data.token);
+        setCurrentUser(data.user);
+        setIsLoggedIn(true);
+        handleCloseModal();
+      })
+      .catch(console.error);
+  };
+
   const handleEditProfileModalSubmit = ({ name, avatarUrl }) => {
+    const jwt = getToken();
     auth
       .updateUserInfo({ name, avatarUrl }, jwt)
       .then((data) => {
@@ -208,15 +209,6 @@ function App() {
       .catch(console.error);
   };
 
-  const visibleItems = clothingItems.filter((item) => {
-    if (!isLoggedIn) return item.default;
-
-    const ownerId =
-      typeof item.owner === "object" ? item.owner._id : item.owner;
-
-    return ownerId === currentUser?._id;
-  });
-
   return (
     <CurrentTemperatureUnitContext.Provider
       value={{ handleToggleSwitchChange, currentTemperatureUnit }}
@@ -239,7 +231,7 @@ function App() {
                   <Main
                     weatherData={weatherData}
                     onCardClick={handleCardClick}
-                    clothingItems={visibleItems}
+                    clothingItems={clothingItems}
                     onCardLike={handleCardLike}
                     currentUser={currentUser}
                   />
@@ -252,7 +244,7 @@ function App() {
                     <Profile
                       onCardClick={handleCardClick}
                       onCardLike={handleCardLike}
-                      clothingItems={visibleItems}
+                      clothingItems={clothingItems}
                       handleOpenEditProfileModal={handleOpenEditProfileModal}
                       handleOpenAddModal={handleOpenAddModal}
                       handleLogoutUser={handleLogoutUser}
