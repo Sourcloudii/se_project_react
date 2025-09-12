@@ -9,7 +9,6 @@ export default function Main({
   onCardClick,
   clothingItems,
   onCardLike,
-  currentUser,
 }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
 
@@ -33,7 +32,6 @@ export default function Main({
                 key={item._id}
                 onCardClick={onCardClick}
                 onCardLike={onCardLike}
-                currentUser={currentUser}
               />
             ))}
         </ul>

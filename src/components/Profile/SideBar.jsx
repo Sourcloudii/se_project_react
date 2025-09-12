@@ -1,10 +1,13 @@
 import "./SideBar.css";
+import { useContext } from "react";
+import { CurrentUserContext } from "../../context/CurrentUserContext";
 
 export default function SideBar({
-  currentUser,
   handleOpenEditProfileModal,
   handleLogoutUser,
 }) {
+  const { currentUser } = useContext(CurrentUserContext);
+
   return (
     <div className="sidebar">
       <div className="sidebar__user_info">
@@ -28,7 +31,11 @@ export default function SideBar({
         >
           Change Profile Data
         </button>
-        <button type="button" onClick={handleLogoutUser} className="sidebar_logout-btn">
+        <button
+          type="button"
+          onClick={handleLogoutUser}
+          className="sidebar_logout-btn"
+        >
           Log out
         </button>
       </div>

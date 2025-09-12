@@ -8,14 +8,12 @@ export default function Profile({
   clothingItems,
   handleOpenAddModal,
   handleOpenEditProfileModal,
-  currentUser,
   handleLogoutUser,
 }) {
   return (
     <div className="profile">
       <section>
         <SideBar
-          currentUser={currentUser}
           handleOpenEditProfileModal={handleOpenEditProfileModal}
           handleLogoutUser={handleLogoutUser}
         />
@@ -26,7 +24,6 @@ export default function Profile({
           onCardLike={onCardLike}
           clothingItems={clothingItems}
           handleOpenAddModal={handleOpenAddModal}
-          currentUser={currentUser}
         />
       </section>
     </div>
