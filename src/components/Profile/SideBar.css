@@ -1,6 +1,7 @@
 .sidebar {
   display: flex;
   align-items: center;
+  flex-direction: column;
   gap: 16px;
   width: 226px;
   height: 56px;
@@ -10,6 +11,42 @@
   margin: 0;
   font-family: Cabinet Grotesk;
   font-weight: 700;
+  font-size: 20px;
+  line-height: 100%;
+}
+
+.sidebar__user_info {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.sidebar__user_options {
+  width: 100%;
+  padding: 14px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.sidebar__update_profile-btn {
+  border-style: none;
+  background: transparent;
+  padding: 0;
+  font-family: Cabinet Grotesk;
+  font-size: 20px;
+  line-height: 100%;
+  cursor: pointer;
+}
+
+.sidebar_logout-btn {
+  cursor: pointer;
+  border-style: none;
+  background: transparent;
+  padding: 0;
+  font-family: Cabinet Grotesk;
   font-size: 20px;
   line-height: 100%;
 }

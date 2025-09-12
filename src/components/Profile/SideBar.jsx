@@ -1,11 +1,37 @@
 import "./SideBar.css";
-import avatar from "../../images/avatar.png";
 
-export default function SideBar() {
+export default function SideBar({
+  currentUser,
+  handleOpenEditProfileModal,
+  handleLogoutUser,
+}) {
   return (
     <div className="sidebar">
-      <img src={avatar} alt="default avatar" className="sidebar__avatar" />
-      <p className="sidebar__username">Terrence Tegegne</p>
+      <div className="sidebar__user_info">
+        {currentUser?.avatar ? (
+          <img
+            className="header__avatar"
+            src={currentUser.avatar}
+            alt="Profile picture"
+          />
+        ) : (
+          <div className="header__avatar-palceholder">
+            {currentUser?.name?.[0]?.toUpperCase() || ""}
+          </div>
+        )}
+        <p className="sidebar__username">{currentUser?.name || "User"}</p>
+      </div>
+      <div className="sidebar__user_options">
+        <button
+          onClick={handleOpenEditProfileModal}
+          className="sidebar__update_profile-btn"
+        >
+          Change Profile Data
+        </button>
+        <button type="button" onClick={handleLogoutUser} className="sidebar_logout-btn">
+          Log out
+        </button>
+      </div>
     </div>
   );
 }
