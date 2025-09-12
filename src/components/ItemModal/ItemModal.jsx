@@ -1,6 +1,14 @@
 import "./ItemModal.css";
 
-function ItemModal({ activeModal, selectedCard, onClose, onDeleteClick }) {
+function ItemModal({
+  activeModal,
+  selectedCard,
+  onClose,
+  onDeleteClick,
+  currentUser,
+}) {
+  const isOwn = selectedCard?.owner === currentUser?._id;
+
   return (
     <div className={`modal ${activeModal === "preview" && "modal_opened"}`}>
       <div className="modal__content modal__content_type_preview">
@@ -17,9 +25,15 @@ function ItemModal({ activeModal, selectedCard, onClose, onDeleteClick }) {
         <div className="modal__preview-content">
           <h2 className="modal__preview-title">
             {selectedCard.name}
-            <button onClick={() => onDeleteClick(selectedCard)} type="button" className="modal__preview-delete-btn">
-              Delete item
-            </button>
+            {isOwn && selectedCard.owner !== "system" && (
+              <button
+                onClick={() => onDeleteClick(selectedCard)}
+                type="button"
+                className="modal__preview-delete-btn"
+              >
+                Delete item
+              </button>
+            )}
           </h2>
           <p className="modal__preview-weather">
             Weather: {selectedCard.weather}
