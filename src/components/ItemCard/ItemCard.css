@@ -12,14 +12,20 @@
   border-style: solid;
 }
 
+.card__overlay {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
+
 .card__name {
   font-family: "Cabinet Grotesk";
-  width: 72px;
   height: 24px;
   font-size: 16px;
   line-height: 20px;
-  position: absolute;
-  margin: 15px 0 0;
+  padding: 2px 12px;
   background: #fff;
   text-align: center;
   display: flex;
@@ -27,4 +33,16 @@
   align-items: center;
   color: rgba(0, 0, 0, 0.6);
   border-radius: 4px;
+}
+
+.card__like-btn {
+  padding: 0;
+  border-style: none;
+  background-color: transparent;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.card__like-btn:hover {
+  opacity: 1;
 }
