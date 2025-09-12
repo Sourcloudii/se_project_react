@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
-import { coordinates, APIkey } from "../../utils/constants.js";
+import { coordinates, apiKey } from "../../utils/constants.js";
 import { getWeatherData, filterWeatherData } from "../../utils/weatherApi.js";
 import { CurrentTemperatureUnitContext } from "../../context/CurrentTemperatureUnitContext.js";
 import { CurrentUserContext } from "../../context/CurrentUserContext.js";
@@ -45,7 +45,7 @@ function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    getWeatherData(coordinates, APIkey)
+    getWeatherData(coordinates, apiKey)
       .then((response) => {
         const filteredData = filterWeatherData(response);
         setWeatherData(filteredData);

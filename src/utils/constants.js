@@ -64,16 +64,16 @@ export const weatherType = [
 
 export const defaultWeatherType = {
   day: {
-    url : new URL("../images/day/default.svg", import.meta.url).href,
+    url: new URL("../images/day/default.svg", import.meta.url).href,
   },
   night: {
-    url : new URL("../images/night/default.svg", import.meta.url).href,
-  }
-}
+    url: new URL("../images/night/default.svg", import.meta.url).href,
+  },
+};
 
 export const coordinates = {
   latitude: 42.289551,
   longitude: -89.647018,
 };
 
-export const APIkey = "f524a3e83c52ac04be883eda135c7031";
+export const apiKey = "f524a3e83c52ac04be883eda135c7031";
