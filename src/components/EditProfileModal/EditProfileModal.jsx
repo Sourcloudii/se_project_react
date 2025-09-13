@@ -1,5 +1,5 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useContext } from "react";
 import { CurrentUserContext } from "../../context/CurrentUserContext";
 
@@ -26,6 +26,13 @@ export default function EditProfileModal({
     onEditProfileModalSubmit({ name, avatar });
   };
 
+  useEffect(() => {
+    if(isOpen && currentUser) {
+      setName(currentUser?.name || "");
+      setAvatar(currentUser?.avatar || "");
+    }
+  }, [isOpen]);
+
   return (
     <ModalWithForm
       buttonText="Save Changes"
@@ -41,7 +48,7 @@ export default function EditProfileModal({
           type="text"
           className="modal__input"
           id="update-name"
-          value={currentUser.name || ""}
+          value={name}
           onChange={handleNameChange}
         />
       </label>
@@ -51,7 +58,7 @@ export default function EditProfileModal({
           type="url"
           className="modal__input"
           id="update-avatar"
-          value={currentUser.avatar || ""}
+          value={avatar}
           onChange={handleAvatarChange}
         />
       </label>
