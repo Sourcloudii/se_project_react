@@ -9,7 +9,7 @@ import {
   postNewClothingItem,
   deleteClothingItem,
 } from "../../utils/api.js";
-import { setToken, getToken } from "../../utils/token.js";
+import { setToken, getToken, removeToken } from "../../utils/token.js";
 import "./App.css";
 import Header from "../Header/Header.jsx";
 import Profile from "../Profile/Profile.jsx";
@@ -132,7 +132,7 @@ function App() {
     const jwt = getToken();
     postNewClothingItem({ name, imageUrl, weather }, jwt)
       .then((item) => {
-        setClothingItems([item, ...clothingItems]);
+        setClothingItems([item.data, ...clothingItems]);
         handleCloseModal();
       })
       .catch(console.error);
@@ -191,7 +191,7 @@ function App() {
   const handleLogoutUser = () => {
     setIsLoggedIn(false);
     setCurrentUser({});
-    setToken("");
+    removeToken();
     navigate("/");
   };
 
