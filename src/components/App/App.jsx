@@ -177,10 +177,10 @@ function App() {
       .catch(console.error);
   };
 
-  const handleEditProfileModalSubmit = ({ name, avatarUrl }) => {
+  const handleEditProfileModalSubmit = ({ name, avatar }) => {
     const jwt = getToken();
     auth
-      .updateUserInfo({ name, avatarUrl }, jwt)
+      .updateUserInfo({ name, avatar }, jwt)
       .then((data) => {
         setCurrentUser(data);
         handleCloseModal();
